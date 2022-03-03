@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen_bloc/src/common/share_prefernce_user.dart';
+import 'package:login_screen_bloc/src/screens/home/home_screen.dart';
 import 'package:login_screen_bloc/src/screens/login_screen.dart';
 
 class App extends StatefulWidget {
@@ -11,6 +13,8 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return LoginScreen();
+    return UserSharedPreference.getAccessToken() != null
+        ? HomeScreen()
+        : LoginScreen();
   }
 }

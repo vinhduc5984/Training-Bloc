@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_screen_bloc/src/bloc/login_bloc/bloc_event.dart';
 import 'package:login_screen_bloc/src/bloc/login_bloc/bloc_state.dart';
-import 'package:login_screen_bloc/src/bloc/login_bloc/form_submission_status.dart';
+
 import 'package:login_screen_bloc/src/common/share_prefernce_user.dart';
 import 'package:login_screen_bloc/src/repositories/auth_repository.dart';
 
@@ -72,8 +72,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState2> {
       if (data == "Login fail") {
         yield LoginErrorState(message: "Sai email hoặc password");
       } else if (data['status'] == 200) {
-        UserSharedPreference.setAccessToken(
-            data['data']['accessToken'] + "DucDuc");
+        UserSharedPreference.setAccessToken(data['data']['accessToken']);
+        print(UserSharedPreference.getAccessToken());
         yield UserLoginSuccessState();
       }
     }

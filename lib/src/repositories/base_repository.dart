@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:login_screen_bloc/src/common/share_prefernce_user.dart';
 
 const root_url = "118.69.37.109:3000";
 
@@ -17,6 +18,7 @@ class BaseRepository {
           : Uri.http(root_url, '/' + name, paramsObject),
       headers: getHeader(),
     );
+    //print(name + params!);
     return response;
   }
 
@@ -44,12 +46,14 @@ class BaseRepository {
   }
 
   getHeader() {
+    print("header: " + (UserSharedPreference.getAccessToken() ?? "null"));
     return <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
       'Connection': 'keep-alive',
       'Accept': '*/*',
       'Accept-Encoding': 'gzip, deflate, br',
-      'Authorization': 'Bearer ' + '',
+      'Authorization':
+          'Bearer ' + (UserSharedPreference.getAccessToken() ?? ""),
     };
   }
 }

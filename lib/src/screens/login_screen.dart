@@ -1,15 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_screen_bloc/src/bloc/login_bloc/bloc.dart';
 import 'package:login_screen_bloc/src/bloc/login_bloc/bloc_event.dart';
 import 'package:login_screen_bloc/src/bloc/login_bloc/bloc_state.dart';
-import 'package:login_screen_bloc/src/bloc/login_bloc/form_submission_status.dart';
 
-import 'package:login_screen_bloc/src/common/share_prefernce_user.dart';
-import 'package:login_screen_bloc/src/repositories/auth_repository.dart';
 import 'package:login_screen_bloc/src/screens/home/home_screen.dart';
 import 'package:login_screen_bloc/src/screens/widgets/dialog_loading.dart';
 
